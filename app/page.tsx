@@ -1,5 +1,11 @@
+import Hero from "@/src/Hero";
+import Project from "@/src/Project";
+
 export default function Home() {
   return(
-    <div className="Text-red-600 text-center mt-20">Home</div>
+    <main>
+      <Hero />
+      <Project/>
+    </main>
   )
 }
