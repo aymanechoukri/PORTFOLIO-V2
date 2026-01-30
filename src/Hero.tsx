@@ -1,9 +1,8 @@
 import Image from "next/image";
-import BackEffect from "./Components/BackgroundEffect";
 
 export default function Hero() {
   return (
-    <section id="Home" className="min-h-screen overflow-hidden">
+    <section id="Home" className="h-[99vh] overflow-hidden">
       {/* Content */}
       <div className="relative flex min-h-screen items-center px-6 md:px-10">
         <div className="flex w-full flex-col-reverse lg:flex-row items-center justify-between gap-12">
@@ -31,26 +30,28 @@ export default function Hero() {
                   </div>
                 </button>
               </a>
-
-              <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-[#39CEED] px-6 font-medium text-neutral-200">
-                <span>My Skills</span>
-                <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
-                  <div className="relative h-full w-8 bg-white/20"></div>
-                </div>
-              </button>
+              <a href="#skills">
+                <button className="group cursor-pointer relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-[#39CEED] px-6 font-medium text-neutral-200">
+                  <span>My Skills</span>
+                  <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
+                    <div className="relative h-full w-8 bg-white/20"></div>
+                  </div>
+                </button>
+              </a>
             </div>
           </div>
 
           {/* Image */}
-          <div className="w-full lg:w-[40%] flex justify-center">
+          <div className="relative">
             <Image
-              src="/image/Me.png"
+              src="/image/Me1.png"
               alt="Aymane Chokri"
-              width={320}
-              height={320}
-              className="w-[220px] sm:w-[260px] md:w-[300px] border-4 border-[#39CEED] shadow-[0_0_40px_rgba(57,206,237,0.2)] drop-shadow-[0_0_60px_rgba(57,206,237,0.2)] rounded-lg"
+              width={400}
+              height={400}
+              className="w-[220px] sm:w-[260px] md:w-[340px] border-4 border-[#39CEED] shadow-[0_0_40px_rgba(57,206,237,0.2)] drop-shadow-[0_0_60px_rgba(57,206,237,0.4)] rounded-lg hover:scale-105 transition-transform duration-300"
               priority
             />
+            <div className="absolute inset-0 border-2 border-[#39CEED] rounded-lg blur-md opacity-30 -z-10"></div>
           </div>
         </div>
       </div>

@@ -4,3 +4,44 @@
 .font-inter {
     font-family: "Inter", sans-serif;
 }
+
+/* Skill bar animation */
+.skill-bar {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, transparent, rgba(57, 206, 237, 0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #39CEED;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2ba8cc;
+}
+
+/* Selection color */
+::selection {
+    background: rgba(57, 206, 237, 0.3);
+    color: white;
+}
