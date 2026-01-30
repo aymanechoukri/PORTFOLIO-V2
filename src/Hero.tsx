@@ -1,31 +1,76 @@
+"use client";
+
 import Image from "next/image";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { motion } from "framer-motion";
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+} as const;
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+} as const;
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.8, x: 50 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+} as const;
 
 export default function Hero() {
   return (
     <section id="Home" className="min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
       <div className="relative w-full max-w-7xl mx-auto">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20"
+        >
           
           {/* Text */}
           <div className="w-full lg:w-[60%] flex flex-col space-y-6 text-center lg:text-left">
-            <h1 className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
+            <motion.h1 variants={itemVariants} className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
               Hi, Im <span className="text-[#39CEED]">Aymane Chokri</span>
-            </h1>
+            </motion.h1>
 
-            <div className="relative">
+            <motion.div variants={itemVariants} className="relative">
               <span className="text-white text-xl sm:text-2xl md:text-3xl font-medium inline-block">
                 Frontend Web Developer
               </span>
               <div className="w-24 h-1 bg-linear-to-r from-[#39CEED] to-transparent rounded-full mt-2 mx-auto lg:mx-0"></div>
-            </div>
+            </motion.div>
 
-            <p className="text-gray-400 text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <motion.p variants={itemVariants} className="text-gray-400 text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
               I craft modern, responsive, and user-friendly web experiences.
               Currently expanding my skills to become a Full-Stack Developer.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+            <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-4">
               <a href="#Project">
                 <button className="group relative px-7 py-3.5 bg-linear-to-r from-gray-900 to-black text-white font-medium rounded-xl overflow-hidden border border-gray-800 hover:border-[#39ceed60] transition-all duration-300 hover:shadow-[0_10px_30px_rgba(57,206,237,0.2)]">
                   <span className="relative z-10 flex items-center gap-2">
@@ -49,10 +94,10 @@ export default function Hero() {
                   <span className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
                 </button>
               </a>
-            </div>
+            </motion.div>
 
             {/* Social Links */}
-            <div className="pt-6 flex justify-center lg:justify-start gap-6">
+            <motion.div variants={itemVariants} className="pt-6 flex justify-center lg:justify-start gap-6">
               {/* GitHub */}
               <a 
                 href="https://github.com/aymanechoukri" 
@@ -95,11 +140,11 @@ export default function Hero() {
                   Email
                 </span>
               </a>
-            </div>
+            </motion.div>
           </div>
 
           {/* Image */}
-          <div className="relative w-full lg:w-[40%] flex justify-center">
+          <motion.div variants={imageVariants} className="relative w-full lg:w-[40%] flex justify-center">
             <div className="relative group">
               <div className="absolute -inset-4 bg-linear-to-r from-[#39CEED] to-[#2dd4bf] rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 -z-10"></div>
               
@@ -116,19 +161,25 @@ export default function Hero() {
               </div>
 
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.5 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
+      >
         <a href="#Project" className="animate-bounce flex flex-col items-center">
           <span className="text-gray-400 text-sm mb-2">Scroll down</span>
           <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-[#39CEED] rounded-full mt-2 animate-pulse"></div>
           </div>
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 }
+

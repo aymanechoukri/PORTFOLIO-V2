@@ -1,4 +1,58 @@
+"use client";
+
 import { FiCode, FiSmartphone, FiLayers, FiGlobe, FiCheck } from "react-icons/fi";
+import { motion } from "framer-motion";
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  hover: {
+    y: -10,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
+const processVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 export default function Services() {
   const services = [
@@ -14,7 +68,12 @@ export default function Services() {
       description: "Fully responsive designs that work on all devices.",
       color: "from-purple-500/20 to-pink-500/20"
     },
-
+    {
+      icon: <FiLayers />,
+      title: "UI/UX Design",
+      description: "Beautiful and intuitive user interfaces.",
+      color: "from-pink-500/20 to-rose-500/20"
+    },
     {
       icon: <FiGlobe />,
       title: "Web Performance",
@@ -34,7 +93,13 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         
         {/* Title */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             My <span className="text-[#39CEED]">Services</span>
           </h2>
@@ -42,13 +107,21 @@ export default function Services() {
             I provide a wide range of web development services to help you build 
             your digital presence.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {services.map((service, index) => (
-            <div 
+            <motion.div 
               key={index} 
+              variants={cardVariants}
+              whileHover="hover"
               className="group relative p-8 bg-[#0f172a] rounded-3xl border border-gray-800 hover:border-[#39ceed60] transition-all duration-300 hover:shadow-[0_20px_40px_rgba(57,206,237,0.15)]"
             >
               {/* Icon */}
@@ -68,34 +141,57 @@ export default function Services() {
               
               {/* Hover Line */}
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#39CEED] to-[#2dd4bf] group-hover:w-full transition-all duration-500"></div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Process */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-white text-center mb-10">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <motion.h3 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl font-bold text-white text-center mb-10"
+          >
             My <span className="text-[#39CEED]">Work Process</span>
-          </h3>
+          </motion.h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          >
             {[
               { step: "01", title: "Discovery", desc: "Understanding your requirements" },
               { step: "02", title: "Design", desc: "Creating wireframes and mockups" },
               { step: "03", title: "Development", desc: "Building and testing the solution" },
               { step: "04", title: "Delivery", desc: "Launch and ongoing support" }
             ].map((item, index) => (
-              <div key={index} className="text-center">
+              <motion.div 
+                key={index} 
+                variants={processVariants}
+                whileHover={{ scale: 1.05 }}
+                className="text-center"
+              >
                 <div className="w-16 h-16 bg-gradient-to-br from-[#39ceed15] to-transparent rounded-full border border-[#39ceed30] flex items-center justify-center mx-auto mb-4">
                   <span className="text-[#39CEED] text-xl font-bold">{item.step}</span>
                 </div>
                 <h4 className="text-white font-bold mb-2">{item.title}</h4>
                 <p className="text-gray-400 text-sm">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
+
