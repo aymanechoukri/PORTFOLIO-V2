@@ -7,17 +7,21 @@ export function About() {
       id="about"
       className="flex flex-col min-h-screen lg:flex-row justify-between items-center lg:items-start w-[90%] max-w-6xl mx-auto py-16 gap-12 lg:gap-20"
     >
-      <div className="w-full lg:w-[40%] flex justify-center">
-        <div className="relative">
-          <Image
-            src="/image/Me2.png"
-            alt="Aymane Chokri"
-            width={400}
-            height={400}
-            className="w-[220px] sm:w-[260px] md:w-[340px] border-4 border-[#39CEED] shadow-[0_0_40px_rgba(57,206,237,0.2)] drop-shadow-[0_0_60px_rgba(57,206,237,0.4)] rounded-lg hover:scale-105 transition-transform duration-300"
-            priority
-          />
-          <div className="absolute inset-0 border-2 border-[#39CEED] rounded-lg blur-md opacity-30 -z-10"></div>
+      <div className="relative w-full lg:w-[40%] flex justify-center">
+        <div className="relative group">
+          <div className="absolute -inset-4 bg-linear-to-r from-[#39CEED] to-[#2dd4bf] rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 -z-10"></div>
+
+          <div className="relative overflow-hidden rounded-xl border-4 border-[#39CEED] p-1">
+            <div className="absolute inset-0 bg-linear-to-r from-[#39ceed30] via-transparent to-[#39ceed30] translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+            <Image
+              src="/image/Me2.png"
+              alt="Aymane Chokri"
+              width={400}
+              height={400}
+              className="relative w-[240px] sm:w-[280px] md:w-[340px] rounded-lg group-hover:scale-105 transition-transform duration-500"
+              priority
+            />
+          </div>
         </div>
       </div>
 

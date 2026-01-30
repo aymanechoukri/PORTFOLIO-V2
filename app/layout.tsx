@@ -1,6 +1,7 @@
 import Header from "@/src/Components/Header";
 import "./globals.css";
 import BackEffect from "@/src/Components/BackgroundEffect";
+import Footer from "@/src/Components/Footer";
 
 export default function RootLayout({
   children,
@@ -13,6 +14,7 @@ export default function RootLayout({
         <Header />
         <BackEffect />
         {children}
+        <Footer />
         </body>
     </html>
   );
