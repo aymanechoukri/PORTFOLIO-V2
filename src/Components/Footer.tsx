@@ -133,7 +133,7 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="text-center md:text-right z-50">
             <h3 className="text-white font-bold mb-4">Quick Links</h3>
             <div className="space-y-2">
-              <a href="#Home" className="text-gray-400 hover:text-white transition-colors block">
+              <a href="#home" className="text-gray-400 hover:text-white transition-colors block">
                 Home
               </a>
               <a href="#projects" className="text-gray-400 hover:text-white transition-colors block">
