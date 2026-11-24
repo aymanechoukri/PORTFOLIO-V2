@@ -43,7 +43,7 @@ const imageVariants = {
 
 export default function Hero() {
   return (
-    <section id="Home" className="min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section id="home" className="min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
       <div className="relative w-full max-w-7xl mx-auto">
         <motion.div
           variants={containerVariants}
@@ -71,7 +71,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-4">
-              <a href="#Project">
+              <a href="#projects">
                 <button className="group relative px-7 py-3.5 bg-linear-to-r from-gray-900 to-black text-white font-medium rounded-xl overflow-hidden border border-gray-800 hover:border-[#39ceed60] transition-all duration-300 hover:shadow-[0_10px_30px_rgba(57,206,237,0.2)]">
                   <span className="relative z-10 flex items-center gap-2">
                     My Projects
