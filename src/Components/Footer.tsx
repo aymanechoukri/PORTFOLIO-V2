@@ -140,7 +140,13 @@ export default function Footer() {
                 Projects
               </a>
               <a href="#experience" className="text-gray-400 hover:text-white transition-colors block">
-                services
+                Experience
+              </a>
+              <a href="#services" className="text-gray-400 hover:text-white transition-colors block">
+                Services
+              </a>
+              <a href="#contact" className="text-gray-400 hover:text-white transition-colors block">
+                Contact
               </a>
             </div>
           </motion.div>
