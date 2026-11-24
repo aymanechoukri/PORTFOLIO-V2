@@ -4,166 +4,70 @@ import Image from "next/image";
 import { Skills } from "./Data/data";
 import { motion } from "framer-motion";
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut" as const,
-    },
-  },
-};
-
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.8, x: -50 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut" as const,
-    },
-  },
-};
-
-const skillVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.4,
-    },
-  },
-};
+const skillGroups = ["Frontend", "Backend", "Databases", "Tools & Workflow", "Currently Learning", "Languages"];
 
 export function About() {
   return (
-    <section
-      id="about"
-      className="flex flex-col min-h-screen lg:flex-row justify-between items-center lg:items-start w-[90%] max-w-6xl mx-auto py-16 gap-12 lg:gap-20"
-    >
+    <section id="about" className="w-[90%] max-w-7xl mx-auto py-24 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-center">
       <motion.div
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0, x: -35, rotateY: 8 }}
+        whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
         viewport={{ once: true }}
-        variants={imageVariants}
-        className="relative w-full lg:w-[40%] flex justify-center"
+        transition={{ duration: 0.7 }}
+        style={{ transformStyle: "preserve-3d", perspective: 1000 }}
+        className="relative flex justify-center"
       >
-        <div className="relative group">
-          <div className="absolute -inset-4 bg-linear-to-r from-[#39CEED] to-[#2dd4bf] rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 -z-10"></div>
-
-          <div className="relative overflow-hidden rounded-xl border-4 border-[#39CEED] p-1">
-            <div className="absolute inset-0 bg-linear-to-r from-[#39ceed30] via-transparent to-[#39ceed30] translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-            <Image
-              src="/image/Me2.png"
-              alt="Aymane Chokri"
-              width={400}
-              height={400}
-              className="relative w-[240px] sm:w-[280px] md:w-[340px] rounded-lg group-hover:scale-105 transition-transform duration-500"
-              priority
-            />
+        <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-[#39CEED]/20 to-violet-500/10 blur-2xl" />
+        <div className="relative p-2 rounded-[2rem] border border-[#39CEED]/40 bg-white/[0.04] shadow-[0_25px_80px_rgba(57,206,237,.12)]">
+          <Image src="/image/Me2.png" alt="Aymane Chokri" width={420} height={480} className="w-[260px] sm:w-[320px] rounded-[1.5rem] object-cover" />
+          <div className="absolute -bottom-5 -right-5 rounded-2xl border border-white/15 bg-[#0b1220] px-5 py-3 shadow-xl">
+            <p className="text-[#39CEED] text-xs uppercase tracking-widest">Based in</p>
+            <p className="text-white font-semibold">Morocco 🇲🇦</p>
           </div>
         </div>
       </motion.div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-        className="w-full lg:w-[60%]"
-      >
-        <motion.div variants={itemVariants} className="relative mb-10">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#39CEED] ml-0 lg:ml-20 inline-block relative">
-            <span className="relative z-10">About Me</span>
-            <span className="absolute left-0 bottom-0 w-20 h-1 bg-linear-to-r from-[#39CEED] to-transparent"></span>
-          </h2>
+      <div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <p className="text-[#39CEED] text-sm font-semibold tracking-[0.28em] uppercase mb-3">A little about me</p>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-7">Building useful things<br /><span className="text-[#39CEED]">for the web.</span></h2>
+          <p className="text-gray-300 text-lg leading-8">
+            I’m a web developer focused on building clean, responsive, and accessible interfaces. I enjoy turning ideas into practical products with React, Next.js, TypeScript, and modern CSS.
+          </p>
+          <p className="text-gray-400 leading-7 mt-4">
+            I’m growing toward full-stack development through hands-on projects, API integration, and continuous learning at YouCode Maroc. I value thoughtful UI, maintainable code, and a smooth experience on every screen.
+          </p>
         </motion.div>
-        <motion.p variants={itemVariants} className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-          Im a passionate Frontend Developer who enjoys building clean,
-          responsive, and user-friendly web interfaces. I focus on turning ideas
-          and designs into functional, visually appealing websites using modern
-          technologies like React, Next.js, and Tailwind CSS.
-        </motion.p>
-        <motion.p variants={itemVariants} className="text-lg sm:text-xl text-gray-300 leading-relaxed mt-6">
-          I care deeply about details, performance, and creating smooth user
-          experiences across all devices. Every project is an opportunity to
-          learn, improve, and deliver something meaningful.
-        </motion.p>
+      </div>
 
-        <motion.div variants={containerVariants} className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <div className="w-2 h-2 bg-[#39CEED] rounded-full"></div>
-            <span className="text-gray-400">Clean & Modern Design</span>
-          </motion.div>
-          <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <div className="w-2 h-2 bg-[#39CEED] rounded-full"></div>
-            <span className="text-gray-400">Responsive Development</span>
-          </motion.div>
-          <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <div className="w-2 h-2 bg-[#39CEED] rounded-full"></div>
-            <span className="text-gray-400">Performance Focused</span>
-          </motion.div>
-          <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <div className="w-2 h-2 bg-[#39CEED] rounded-full"></div>
-            <span className="text-gray-400">User Experience</span>
-          </motion.div>
-        </motion.div>
-
-        <div id="skills">
-          <motion.div 
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="relative my-10"
-          >
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#39CEED] ml-0 lg:ml-20 inline-block relative">
-              <span className="relative z-10">Skills</span>
-              <span className="absolute left-0 bottom-0 w-20 h-1 bg-linear-to-r from-[#39CEED] to-transparent"></span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-3"
-          >
-            {Skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                variants={skillVariants}
-                whileHover={{ scale: 1.05 }}
-                className="group relative px-4 py-2 bg-[#0f172a] border border-[#39CEED]/30 rounded-full cursor-pointer overflow-hidden transition-all duration-300 hover:border-[#39CEED] hover:shadow-[0_0_20px_rgba(57,206,237,0.3)]"
-              >
-                <div className="absolute inset-0 bg-[#39CEED]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative flex items-center gap-2 text-gray-300 group-hover:text-white transition-colors duration-300">
-                  <span>{skill.icon}</span>
-                  <span className="font-medium">{skill.name}</span>
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
+      <div id="skills" className="lg:col-span-2 pt-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
+          <div>
+            <p className="text-[#39CEED] text-xs font-semibold tracking-[0.25em] uppercase mb-2">Tools I work with</p>
+            <h3 className="text-3xl font-bold text-white">Skills & technologies</h3>
+          </div>
+          <span className="text-xs text-gray-500">Technologies I use and currently learn</span>
         </div>
-      </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          {skillGroups.map((group) => {
+            const groupSkills = Skills.filter((skill) => skill.category === group);
+            if (!groupSkills.length) return null;
+            return (
+              <motion.div key={group} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-2xl border border-white/10 bg-white/[0.035] p-5 hover:border-[#39CEED]/30 transition-colors">
+                <h4 className="text-sm font-semibold text-[#39CEED] mb-4">{group}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {groupSkills.map((skill) => (
+                    <span key={skill.name} className={`inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs ${skill.learning ? "border-amber-400/20 bg-amber-400/[0.06] text-amber-100" : "border-white/10 bg-[#0b1220] text-gray-200"}`}>
+                      <span>{skill.icon}</span>{skill.name}
+                      {skill.learning && <span className="text-[9px] uppercase tracking-wide text-amber-300">Learning</span>}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
-
