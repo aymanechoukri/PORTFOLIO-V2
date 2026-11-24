@@ -148,12 +148,6 @@ export default function Footer() {
               <a href="#contact" className="text-gray-400 hover:text-white transition-colors block">
                 Contact
               </a>
-              <a href="#Experience" className="text-gray-400 hover:text-white transition-colors block">
-                Services
-              </a>
-              <a href="#contact" className="text-gray-400 hover:text-white transition-colors block">
-                Contact
-              </a>
             </div>
           </motion.div>
         </motion.div>
