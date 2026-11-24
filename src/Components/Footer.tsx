@@ -45,7 +45,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t border-gray-900 py-12">
+    <footer id="footer" className="bg-black border-t border-gray-900 py-12">
       <div className="max-w-6xl mx-auto px-4">
         
         {/* Top Section */}
@@ -136,10 +136,10 @@ export default function Footer() {
               <a href="#Home" className="text-gray-400 hover:text-white transition-colors block">
                 Home
               </a>
-              <a href="#Project" className="text-gray-400 hover:text-white transition-colors block">
+              <a href="#projects" className="text-gray-400 hover:text-white transition-colors block">
                 Projects
               </a>
-              <a href="#services" className="text-gray-400 hover:text-white transition-colors block">
+              <a href="#experience" className="text-gray-400 hover:text-white transition-colors block">
                 services
               </a>
             </div>
