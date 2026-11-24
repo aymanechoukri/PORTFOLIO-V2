@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  const menuItems = ["Home", "About", "Services", "Contact"];
+  const menuItems = ["Home", "Projects", "About", "Skills", "Experience", "Services", "Contact"];
 
   const logoVariants = {
     hidden: { opacity: 0, x: -30 },
