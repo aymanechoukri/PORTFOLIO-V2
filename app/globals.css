@@ -1,47 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 .font-inter {
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-/* Skill bar animation */
-.skill-bar {
-    position: relative;
-    overflow: hidden;
+a, button {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.skill-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, transparent, rgba(57, 206, 237, 0.2), transparent);
-    animation: shimmer 2s infinite;
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #39CEED;
+  outline-offset: 4px;
+  border-radius: 0.5rem;
 }
 
-/* Enhanced scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #39CEED; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2ba8cc; }
 
-::-webkit-scrollbar-track {
-    background: #0f172a;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #39CEED;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #2ba8cc;
-}
-
-/* Selection color */
 ::selection {
-    background: rgba(57, 206, 237, 0.3);
-    color: white;
+  background: rgba(57, 206, 237, 0.3);
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
