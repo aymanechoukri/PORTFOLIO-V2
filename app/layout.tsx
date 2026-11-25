@@ -3,6 +3,7 @@ import Header from "@/src/Components/Header";
 import "./globals.css";
 import BackEffect from "@/src/Components/BackgroundEffect";
 import Footer from "@/src/Components/Footer";
+import CinematicIntro from "@/src/Components/CinematicIntro";
 
 export const metadata: Metadata = {
   title: "Aymane Chokri | Front-End & Full-Stack Developer",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <BackEffect />
         {children}
         <Footer />
+        <CinematicIntro />
       </body>
     </html>
   );
